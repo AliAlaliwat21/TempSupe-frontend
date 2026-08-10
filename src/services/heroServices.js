@@ -85,4 +85,24 @@ const updateReview = async (heroId, reviewId, reviewData) =>{
     
 }
 
-export {allHeroes, singleHero, createReview, updateReview}
+const deleteReview = async(heroId, reviewId)=>{
+    try {
+        const res = await fetch(`${BASE_URL}/heroes/${heroId}/reviews/${reviewId}`,
+           {
+            method: 'DELETE',
+            headers:{Authorization: `Bearer ${localStorage.getItem('token')}`, 'Content-Type' : 'application/json'},
+           } 
+        )
+        const fetchedData = await res.json()
+
+        if(!res.ok){
+            throw new Error (fetchedData)
+        }
+
+        return fetchedData
+    } catch (error) {
+        throw new Error (error)
+    }
+}
+
+export {allHeroes, singleHero, createReview, updateReview, deleteReview}
