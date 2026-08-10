@@ -2,7 +2,13 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}`
 
 const allRequests = async ()=>{
     try {
-        const res = await fetch (`${BASE_URL}/service-requests`)
+        const res = await fetch (`${BASE_URL}/service-requests`, {
+            method: 'GET',
+            headers:{
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type' : 'application/json',
+            },
+        })
 
         const allRequestsData = await res.json()
 
@@ -15,4 +21,21 @@ const allRequests = async ()=>{
     
 }
 
-export {allRequests}
+
+const createRequests = async(formData)=>{
+    try {
+        const res = await fetch(`${BASE_URL}/service-requests`, {
+            method: 'POST',
+            headers:{
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type' : 'application/json',
+            },
+            body: JSON.stringify(formData)
+        })
+        return res.json()
+    } catch (error) {
+        throw new Error (error)
+    }
+}
+
+export {allRequests, createRequests}
