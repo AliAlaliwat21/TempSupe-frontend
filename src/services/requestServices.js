@@ -66,4 +66,22 @@ const singleRequest = async (requestId)=>{
     }
 }
 
+const deleteRequest = async(requestId)=>{
+    try{
+    const res = await fetch(`${BASE_URL}/
+        service-requests/${requestId}`,{
+            method: 'DELETE',
+            headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+        })
+        const fetchedData = await res.json()
+
+        if (!res.ok){
+            throw new Error(fetchedData.message)
+        }
+
+        return fetchedData
+}   catch (error){
+    throw new Error(error)
+    }
+} 
 export {allRequests, createRequest, singleRequest}
