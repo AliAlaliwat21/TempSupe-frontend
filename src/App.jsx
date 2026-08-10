@@ -25,7 +25,9 @@ const App = () => {
       <main className="app-main">
       <Routes>
         <Route path='/' element={user ? <Dashboard user={user} /> : <Landing />} />
+
         <Route path='/sign-up' element={<SignUpForm setUser={setUser} />} />
+        
         <Route path='/sign-in' element={<SignInForm setUser={setUser} />} />
       </Routes>
       </main>
