@@ -3,17 +3,17 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}`
 const allHeroes = async()=>{
     try {
         const res = await fetch(`${BASE_URL}/heroes`)
-    const heroesData = await res.json()
+        const heroesData = await res.json()
     
     
-    if (heroesData.err) {
-        return console.log(heroesData.err) 
-        throw new Error(heroesData.err)
+    if (heroesData.error) {
+        return console.log(heroesData.error) 
+        throw new Error(heroesData.error)
     }
    
     return heroesData
-    } catch (err) {
-        throw new Error(err)
+    } catch (error) {
+        throw new Error(error)
         
     }
 
@@ -25,14 +25,14 @@ try {
 
     const heroData = await res.json()
 
-    if (heroData.err) {
-        return console.log(heroData.err) 
-        throw new Error(err)
+    if (heroData.error) {
+        return console.log(heroData.error) 
+        throw new Error(error)
     } 
 
     return heroData
-} catch (err) {
-    throw new Error(err)
+} catch (error) {
+    throw new Error(error)
 }
 
 }
