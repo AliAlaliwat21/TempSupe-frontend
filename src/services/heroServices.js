@@ -37,4 +37,25 @@ try {
 
 }
 
-export {allHeroes, singleHero}
+const createReview = async(heroId, reviewData)=>{
+    try {
+        const res = await fetch(`${BASE_URL}/heroes/${heroId}/reviews`,{
+            method: 'POST',
+            headers:{
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type' : 'application/json',
+            },
+            body: JSON.stringify(reviewData)
+        })
+        const fetchedData = await res.json()
+
+        if(!res.ok){
+            throw new Error(fetchedData)
+        }
+        return fetchedData
+    } catch (error) {
+        throw new Error (error)
+    }
+}
+
+export {allHeroes, singleHero, createReview}
