@@ -5,16 +5,17 @@ const allRequests = async ()=>{
         const res = await fetch (`${BASE_URL}/service-requests`, {
             method: 'GET',
             headers:{
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
-                'Content-Type' : 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             },
         })
 
-        const allRequestsData = await res.json()
+        const fetchedData = await res.json()
 
-        if (allRequestsData.error){
-            throw new Error(error)
+        if (!res.ok){
+            throw new Error(fetchedData.message)
         }
+
+        return fetchedData
     } catch (error) {
         throw new Error (error)
     }
@@ -22,7 +23,7 @@ const allRequests = async ()=>{
 }
 
 
-const createRequests = async(formData)=>{
+const createRequest = async(formData)=>{
     try {
         const res = await fetch(`${BASE_URL}/service-requests`, {
             method: 'POST',
@@ -32,10 +33,37 @@ const createRequests = async(formData)=>{
             },
             body: JSON.stringify(formData)
         })
-        return res.json()
+
+        const fetchedData = await res.json()
+
+        if (!res.ok){
+            throw new Error(fetchedData.message)
+        }
+        return fetchedData
+
     } catch (error) {
         throw new Error (error)
     }
 }
 
-export {allRequests, createRequests}
+const singleRequest = async (requestId)=>{
+    try {
+         const res = await fetch(`${BASE_URL}/service-requests/${requestId}`, {
+        method: 'GET',
+        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+        })
+
+        const fetchedData = await res.json()
+
+     if (!res.ok){
+            throw new Error(fetchedData.message)
+        }
+
+        return fetchedData
+
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
+export {allRequests, createRequest, singleRequest}
