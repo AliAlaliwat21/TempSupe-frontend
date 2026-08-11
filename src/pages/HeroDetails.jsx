@@ -59,10 +59,10 @@ const handleDeleteReview = async (reviewId)=>{
 return (
   <main className={`hero-details-page ${hero.theme}`}>
 
-    {hero.backgroundGif && (
+    {hero.backgroundVideo && (
       <img
         className="hero-background-gif"
-        src={hero.backgroundGif}
+        src={hero.backgroundVideo}
         alt=""
       />
     )}
@@ -90,10 +90,10 @@ return (
           <p>{hero.detailedBio}</p>
         </div>
 
-        {hero.detailGif && (
+        {hero.detailMedia && (
           <div className="hero-gif-container">
             <img
-              src={hero.detailGif}
+              src={hero.detailMedia}
               alt={hero.name}
               className="hero-detail-gif"
             />
@@ -150,14 +150,9 @@ return (
       </section>
 
 
-      {/* REVIEW SECTION */}
-
       <section className="hero-reviews-section">
 
         <h2>Reviews</h2>
-
-
-        {/* THIS IS YOUR ACTUAL REVIEW FORM */}
 
         <div className="review-form-container">
 
@@ -169,8 +164,6 @@ return (
 
         </div>
 
-
-        {/* REVIEWS ALREADY SUBMITTED */}
 
         <div className="reviews-grid">
 
