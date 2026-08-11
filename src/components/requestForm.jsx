@@ -17,7 +17,7 @@ const RequestForm = (props) => {
         description: '',
         location: '',
         requestedDate: '',
-        status: 'Pending'
+        status: 'Submitted'
     }
 
 
@@ -149,14 +149,49 @@ const RequestForm = (props) => {
                 Request Type:
             </label>
 
-            <input
+                <select
                 required
-                type='text'
                 name='requestType'
                 id='request-type-input'
                 value={formData.requestType}
                 onChange={handleChange}
-            />
+                >
+                <option value=''>
+                    Select a Request Type
+                </option>
+
+                <option value='Emergency Response'>
+                    Emergency Response
+                </option>
+
+                <option value='VIP Escort'>
+                    VIP Escort
+                </option>
+
+                <option value='Event Appearance'>
+                    Event Appearance
+                </option>
+
+                <option value='Investigation'>
+                    Investigation
+                </option>
+
+                <option value='Search and Rescue'>
+                    Search and Rescue
+                </option>
+
+                <option value='Disaster Assistance'>
+                    Disaster Assistance
+                </option>
+
+                <option value='Security Support'>
+                    Security Support
+                </option>
+
+                <option value='Other'>
+                    Other
+                </option>
+                </select>
 
 
 
