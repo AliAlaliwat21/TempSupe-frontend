@@ -10,6 +10,7 @@ const HeroDetails = (props)=>{
 
     const [hero, setHero] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
+    
 
     useEffect(()=>{
         const fetchHero = async()=>{
@@ -59,13 +60,28 @@ const handleDeleteReview = async (reviewId)=>{
         <>
             <main>
                 <h1>{hero.name}</h1>
+
+                <h2>Biography:</h2>
                 <p>{hero.detailedBio}</p>
+
+                <h2>Powers:</h2>
                 <p>{hero.powers}</p>
+
+                <h2>Strengths:</h2>
                 <p>{hero.strength}</p>
+
+                <h2>Specialty:</h2>
                 <p>{hero.specialty}</p>
+
+                <h2>Latest Saves:</h2>
                 <p>{hero.latestSave}</p>
+
+                <h2>Biggest Save:</h2>
                 <p>{hero.biggestSave}</p>
+
+                <h2>Greatest Feat:</h2>
                 <p>{hero.greatestFeat}</p>
+                
                 <p>{hero.image}</p>
             </main>
         </>

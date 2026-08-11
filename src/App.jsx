@@ -2,7 +2,7 @@ import Nav from "./components/Nav"
 import SignUpForm from "./pages/SignUpForm"
 import './App.css'
 import { Routes, Route } from "react-router"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import SignInForm from "./pages/SignInForm"
 import Landing from "./pages/Landing"
 import Dashboard from "./pages/Dashboard"
@@ -26,7 +26,7 @@ const App = () => {
   const [heroes, setHeroes] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
-  useState(()=>{
+  useEffect(()=>{
     const fetchAllHeroes = async ()=>{
         try {
           const heroesData = await heroServices.allHeroes()
