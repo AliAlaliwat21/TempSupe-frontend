@@ -1,6 +1,5 @@
 import { Link } from "react-router"
 
-
 const Nav = (props) => {
 
     const handleSignOut = () => {
@@ -10,36 +9,76 @@ const Nav = (props) => {
 
     return (
         <nav>
-            <Link className="nav-brand" to="/">App Name</Link>
-            { props.user ? (
+
+            <Link className="nav-brand" to="/">
+                App Name
+            </Link>
+
+            {props.user ? (
+
                 <ul>
-                    <li>Welcome, {props.user.username}!</li>
+
                     <li>
-                        <Link to="/">Dashboard</Link>
+                        Welcome, {props.user.username}!
                     </li>
+
                     <li>
-                        <Link to="/" onClick={handleSignOut}>Sign Out</Link>
+                        <Link to="/">
+                            Dashboard
+                        </Link>
                     </li>
-                     <li>
-                        <Link to='/heroes'>View The Seven</Link>
+
+                    <li>
+                        <Link to="/heroes">
+                            View The Seven
+                        </Link>
                     </li>
+
+                    <li>
+                        <Link to="/request-support">
+                            Request Support
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link to="/" onClick={handleSignOut}>
+                            Sign Out
+                        </Link>
+                    </li>
+
                 </ul>
+
             ) : (
-            <ul>
-                <li>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li>
-                    <Link to='/sign-up'>Sign Up</Link>
-                </li>
-                <li>
-                    <Link to='/sign-in'>Sign In</Link>
-                </li>
-                <li>
-                    <Link to='/heroes'>View The Seven</Link>
-                </li>
-            </ul>
-            ) }
+
+                <ul>
+
+                    <li>
+                        <Link to="/">
+                            Home
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link to="/sign-up">
+                            Sign Up
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link to="/sign-in">
+                            Sign In
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link to="/heroes">
+                            View The Seven
+                        </Link>
+                    </li>
+
+                </ul>
+
+            )}
 
         </nav>
     )
