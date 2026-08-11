@@ -59,43 +59,43 @@ const handleDeleteReview = async (reviewId)=>{
 return (
   <main className={`hero-details-page ${hero.theme}`}>
 
-    {hero.backgroundVideo && (
-      <video
-        className="hero-background-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src={hero.backgroundVideo} type="video/mp4" />
-      </video>
+    {hero.backgroundGif && (
+      <img
+        className="hero-background-gif"
+        src={hero.backgroundGif}
+        alt=""
+      />
     )}
 
     <div className="hero-background-overlay"></div>
 
-    <section className="hero-details-content">
+    <div className="hero-details-container">
 
-      <header className="hero-header">
-        <div>
-          <h1>{hero.name}</h1>
-          <p className="hero-specialty">
-            {hero.specialty}
-          </p>
-        </div>
-      </header>
+      <section className="hero-title-section">
+        <p className="vought-label">VOUGHT INTERNATIONAL</p>
 
-      <section className="hero-about">
+        <h1>{hero.name}</h1>
 
-        <div className="hero-description">
+        <p className="hero-specialty">
+          {hero.specialty}
+        </p>
+      </section>
+
+
+      <section className="hero-bio-section">
+
+        <div className="hero-bio-text">
           <h2>Biography</h2>
+
           <p>{hero.detailedBio}</p>
         </div>
 
-        {hero.detailMedia && (
-          <div className="hero-detail-media">
+        {hero.detailGif && (
+          <div className="hero-gif-container">
             <img
-              src={hero.detailMedia}
-              alt={`${hero.name} showcase`}
+              src={hero.detailGif}
+              alt={hero.name}
+              className="hero-detail-gif"
             />
           </div>
         )}
@@ -103,9 +103,9 @@ return (
       </section>
 
 
-      <section className="hero-info-grid">
+      <section className="hero-stats-grid">
 
-        <article className="hero-info-card">
+        <article className="hero-detail-card">
           <h2>Powers</h2>
 
           <ul>
@@ -118,25 +118,31 @@ return (
         </article>
 
 
-        <article className="hero-info-card">
+        <article className="hero-detail-card">
           <h2>Strength</h2>
           <p>{hero.strength}</p>
         </article>
 
 
-        <article className="hero-info-card">
+        <article className="hero-detail-card">
+          <h2>Specialty</h2>
+          <p>{hero.specialty}</p>
+        </article>
+
+
+        <article className="hero-detail-card">
           <h2>Latest Save</h2>
           <p>{hero.latestSave}</p>
         </article>
 
 
-        <article className="hero-info-card">
+        <article className="hero-detail-card">
           <h2>Biggest Save</h2>
           <p>{hero.biggestSave}</p>
         </article>
 
 
-        <article className="hero-info-card">
+        <article className="hero-detail-card">
           <h2>Greatest Feat</h2>
           <p>{hero.greatestFeat}</p>
         </article>
@@ -144,47 +150,75 @@ return (
       </section>
 
 
-      <section className="reviews-section">
+      {/* REVIEW SECTION */}
 
-        <h2>Public Reviews</h2>
+      <section className="hero-reviews-section">
 
-        <ReviewForm
-          handleAddReview={handleAddReview}
-        />
+        <h2>Reviews</h2>
 
-        <div className="reviews-list">
-          {hero.reviews.map((review) => (
-            <article
-              className="review-card"
-              key={review._id}
-            >
-              <div className="review-rating">
-                ★ {review.rating}/5
-              </div>
 
-              <p>{review.content}</p>
+        {/* THIS IS YOUR ACTUAL REVIEW FORM */}
 
-              {props.user &&
-                review.author === props.user._id && (
-                  <button
-                    onClick={() =>
-                      handleDeleteReview(review._id)
-                    }
-                  >
-                    Delete
-                  </button>
-                )}
-            </article>
-          ))}
+        <div className="review-form-container">
+
+          <h3>Leave a Review</h3>
+
+          <ReviewForm
+            handleAddReview={handleAddReview}
+          />
+
+        </div>
+
+
+        {/* REVIEWS ALREADY SUBMITTED */}
+
+        <div className="reviews-grid">
+
+          {hero.reviews.length > 0 ? (
+
+            hero.reviews.map((review) => (
+
+              <article
+                key={review._id}
+                className="review-card"
+              >
+
+                <h3>
+                  {review.rating}/5 ★
+                </h3>
+
+                <p>
+                  {review.content}
+                </p>
+
+                <button
+                  onClick={() =>
+                    handleDeleteReview(review._id)
+                  }
+                >
+                  Delete Review
+                </button>
+
+              </article>
+
+            ))
+
+          ) : (
+
+            <p>
+              No reviews yet.
+            </p>
+
+          )}
+
         </div>
 
       </section>
 
-    </section>
+    </div>
 
   </main>
 )
-
 
 
 }
