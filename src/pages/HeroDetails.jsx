@@ -56,36 +56,134 @@ const handleDeleteReview = async (reviewId)=>{
 
         if (!hero) return <p>Hero not found.</p>
 
-    return(
-        <>
-            <main>
-                <h1>{hero.name}</h1>
+return (
+  <main className={`hero-details-page ${hero.theme}`}>
 
-                <h2>Biography:</h2>
-                <p>{hero.detailedBio}</p>
+    {hero.backgroundVideo && (
+      <video
+        className="hero-background-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src={hero.backgroundVideo} type="video/mp4" />
+      </video>
+    )}
 
-                <h2>Powers:</h2>
-                <p>{hero.powers}</p>
+    <div className="hero-background-overlay"></div>
 
-                <h2>Strengths:</h2>
-                <p>{hero.strength}</p>
+    <section className="hero-details-content">
 
-                <h2>Specialty:</h2>
-                <p>{hero.specialty}</p>
+      <header className="hero-header">
+        <div>
+          <h1>{hero.name}</h1>
+          <p className="hero-specialty">
+            {hero.specialty}
+          </p>
+        </div>
+      </header>
 
-                <h2>Latest Saves:</h2>
-                <p>{hero.latestSave}</p>
+      <section className="hero-about">
 
-                <h2>Biggest Save:</h2>
-                <p>{hero.biggestSave}</p>
+        <div className="hero-description">
+          <h2>Biography</h2>
+          <p>{hero.detailedBio}</p>
+        </div>
 
-                <h2>Greatest Feat:</h2>
-                <p>{hero.greatestFeat}</p>
-                
-                <p>{hero.image}</p>
-            </main>
-        </>
-    )
+        {hero.detailMedia && (
+          <div className="hero-detail-media">
+            <img
+              src={hero.detailMedia}
+              alt={`${hero.name} showcase`}
+            />
+          </div>
+        )}
+
+      </section>
+
+
+      <section className="hero-info-grid">
+
+        <article className="hero-info-card">
+          <h2>Powers</h2>
+
+          <ul>
+            {hero.powers.map((power) => (
+              <li key={power}>
+                {power}
+              </li>
+            ))}
+          </ul>
+        </article>
+
+
+        <article className="hero-info-card">
+          <h2>Strength</h2>
+          <p>{hero.strength}</p>
+        </article>
+
+
+        <article className="hero-info-card">
+          <h2>Latest Save</h2>
+          <p>{hero.latestSave}</p>
+        </article>
+
+
+        <article className="hero-info-card">
+          <h2>Biggest Save</h2>
+          <p>{hero.biggestSave}</p>
+        </article>
+
+
+        <article className="hero-info-card">
+          <h2>Greatest Feat</h2>
+          <p>{hero.greatestFeat}</p>
+        </article>
+
+      </section>
+
+
+      <section className="reviews-section">
+
+        <h2>Public Reviews</h2>
+
+        <ReviewForm
+          handleAddReview={handleAddReview}
+        />
+
+        <div className="reviews-list">
+          {hero.reviews.map((review) => (
+            <article
+              className="review-card"
+              key={review._id}
+            >
+              <div className="review-rating">
+                ★ {review.rating}/5
+              </div>
+
+              <p>{review.content}</p>
+
+              {props.user &&
+                review.author === props.user._id && (
+                  <button
+                    onClick={() =>
+                      handleDeleteReview(review._id)
+                    }
+                  >
+                    Delete
+                  </button>
+                )}
+            </article>
+          ))}
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+)
 
 
 
