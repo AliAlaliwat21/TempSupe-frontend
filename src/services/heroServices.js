@@ -37,7 +37,7 @@ try {
 
 }
 
-const createReview = async(heroId, reviewData)=>{
+const createReview = async(heroId, formData)=>{
     try {
         const res = await fetch(`${BASE_URL}/heroes/${heroId}/reviews`,{
             method: 'POST',
@@ -45,7 +45,7 @@ const createReview = async(heroId, reviewData)=>{
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type' : 'application/json',
             },
-            body: JSON.stringify(reviewData)
+            body: JSON.stringify(formData)
         })
         const fetchedData = await res.json()
 
@@ -58,7 +58,7 @@ const createReview = async(heroId, reviewData)=>{
     }
 }
 
-const updateReview = async (heroId, reviewId, reviewData) =>{
+const updateReview = async (heroId, reviewId, formData) =>{
     try {
         const res = await fetch(`${BASE_URL}/heroes/${heroId}/reviews/${reviewId}`, 
         {
@@ -66,7 +66,7 @@ const updateReview = async (heroId, reviewId, reviewData) =>{
 
             headers: {Authorization: `Bearer ${localStorage.getItem('token')}`, 'Content-Type' : 'application/json'},
 
-            body: JSON.stringify(reviewData)
+            body: JSON.stringify(formData)
         }
         
     )

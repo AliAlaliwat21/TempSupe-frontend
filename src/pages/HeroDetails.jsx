@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import * as heroService from '../services/heroServices'
-import reviewForm from '../components/reviewForm'
+import ReviewForm from '../components/ReviewForm'
 
 
-const heroDetails = (props)=>{
+const HeroDetails = (props)=>{
     const navigate = useNavigate()
     const { heroId } = useParams()
 
@@ -20,12 +20,24 @@ const heroDetails = (props)=>{
 
             } catch (error) {
                 console.log(error)
-                
+
             } finally{
                 setIsLoading(false)
             }
             
         }
         fetchHero()
-    }, [])
+    }, [heroId])
+
+
+    const handleAddReview = async (formData)=>{
+    try {
+       const newReview = await heroService.createReview(heroId, formData)
+        setHero({...hero, reviews:[...hero.reviews, newReview]})
+    } catch (error) {
+        console.log(error)
+    }
 }
+
+}
+
