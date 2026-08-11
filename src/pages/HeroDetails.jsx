@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router'
 import * as heroService from '../services/heroServices'
 import ReviewForm from '../components/ReviewForm'
 
@@ -10,6 +10,7 @@ const HeroDetails = (props)=>{
 
     const [hero, setHero] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
+    
 
     useEffect(()=>{
         const fetchHero = async()=>{
@@ -17,6 +18,7 @@ const HeroDetails = (props)=>{
                 const heroData = await heroService.singleHero(heroId)
 
                 setHero(heroData)
+                console.log(heroData)
 
             } catch (error) {
                 console.log(error)
@@ -39,9 +41,9 @@ const HeroDetails = (props)=>{
     }
 }
 
-    const handleDeleteReview = async (formData)=>{
+    const handleDeleteReview = async (reviewId)=>{
         try {
-            const deletedreview = heroService.deleteReview(heroId, reviewId)
+            const deletedreview = await heroService.deleteReview(heroId, reviewId)
             const filteredReviews = hero.reviews.filter((review)=>{
                 return review._id !== reviewId
             })
@@ -50,5 +52,17 @@ const HeroDetails = (props)=>{
         console.log(error)
         }
     }
-}
 
+        if (isLoading) return <p>Loading hero...</p>
+
+        if (!hero) return <p>Hero not found.</p>
+
+    return(
+        <>
+            <main>
+                <h1>{hero.name}</h1>
+            </main>
+        </>
+    )
+}
+export default HeroDetails

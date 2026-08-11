@@ -2,13 +2,15 @@ import Nav from "./components/Nav"
 import SignUpForm from "./pages/SignUpForm"
 import './App.css'
 import { Routes, Route } from "react-router"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import SignInForm from "./pages/SignInForm"
 import Landing from "./pages/Landing"
 import Dashboard from "./pages/Dashboard"
 import HeroList from "./pages/HeroList"
 import * as heroServices from "./services/heroServices"
 import * as requestService from "./services/requestServices"
+import ReviewForm from "./components/ReviewForm"
+import HeroDetails from "./pages/HeroDetails"
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')
@@ -25,7 +27,7 @@ const App = () => {
   const [heroes, setHeroes] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
-  useState(()=>{
+  useEffect(()=>{
     const fetchAllHeroes = async ()=>{
         try {
           const heroesData = await heroServices.allHeroes()
@@ -53,6 +55,10 @@ const App = () => {
         <Route path='/sign-in' element={<SignInForm setUser={setUser} />} />
 
         <Route path='/heroes' element={<HeroList heroes={heroes} isLoading={isLoading} />} />
+
+        <Route path='/heroes/:heroId' element={<HeroDetails />} />
+
+        <Route path='/heroes/:heroId/reviews/:reviewId/edit' element={<ReviewForm/>} />
       </Routes>
       </main>
     </div>
