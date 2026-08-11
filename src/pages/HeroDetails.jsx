@@ -39,5 +39,16 @@ const HeroDetails = (props)=>{
     }
 }
 
+    const handleDeleteReview = async (formData)=>{
+        try {
+            const deletedreview = heroService.deleteReview(heroId, reviewId)
+            const filteredReviews = hero.reviews.filter((review)=>{
+                return review._id !== reviewId
+            })
+            setHero({...hero, reviews: filteredReviews})
+        } catch (error) {
+        console.log(error)
+        }
+    }
 }
 
