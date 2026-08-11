@@ -18,7 +18,6 @@ const HeroDetails = (props)=>{
                 const heroData = await heroService.singleHero(heroId)
 
                 setHero(heroData)
-                console.log(heroData)
 
             } catch (error) {
                 console.log(error)
@@ -41,7 +40,7 @@ const HeroDetails = (props)=>{
     }
 }
 
-    const handleDeleteReview = async (reviewId)=>{
+const handleDeleteReview = async (reviewId)=>{
         try {
             const deletedreview = await heroService.deleteReview(heroId, reviewId)
             const filteredReviews = hero.reviews.filter((review)=>{
@@ -61,8 +60,34 @@ const HeroDetails = (props)=>{
         <>
             <main>
                 <h1>{hero.name}</h1>
+
+                <h2>Biography:</h2>
+                <p>{hero.detailedBio}</p>
+
+                <h2>Powers:</h2>
+                <p>{hero.powers}</p>
+
+                <h2>Strengths:</h2>
+                <p>{hero.strength}</p>
+
+                <h2>Specialty:</h2>
+                <p>{hero.specialty}</p>
+
+                <h2>Latest Saves:</h2>
+                <p>{hero.latestSave}</p>
+
+                <h2>Biggest Save:</h2>
+                <p>{hero.biggestSave}</p>
+
+                <h2>Greatest Feat:</h2>
+                <p>{hero.greatestFeat}</p>
+                
+                <p>{hero.image}</p>
             </main>
         </>
     )
+
+
+
 }
 export default HeroDetails

@@ -9,7 +9,6 @@ import Dashboard from "./pages/Dashboard"
 import HeroList from "./pages/HeroList"
 import * as heroServices from "./services/heroServices"
 import * as requestService from "./services/requestServices"
-import ReviewForm from "./components/ReviewForm"
 import HeroDetails from "./pages/HeroDetails"
 
 const getUserFromToken = () => {
@@ -56,9 +55,7 @@ const App = () => {
 
         <Route path='/heroes' element={<HeroList heroes={heroes} isLoading={isLoading} />} />
 
-        <Route path='/heroes/:heroId' element={<HeroDetails />} />
-
-        <Route path='/heroes/:heroId/reviews/:reviewId/edit' element={<ReviewForm/>} />
+        <Route path='heroes/:heroId' element={<HeroDetails/>} />
       </Routes>
       </main>
     </div>
