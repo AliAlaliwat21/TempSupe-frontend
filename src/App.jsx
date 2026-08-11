@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard"
 import HeroList from "./pages/HeroList"
 import * as heroServices from "./services/heroServices"
 import * as requestService from "./services/requestServices"
+import HeroDetails from "./pages/HeroDetails"
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')
@@ -53,6 +54,8 @@ const App = () => {
         <Route path='/sign-in' element={<SignInForm setUser={setUser} />} />
 
         <Route path='/heroes' element={<HeroList heroes={heroes} isLoading={isLoading} />} />
+
+        <Route path='heroes/:heroId' element={<HeroDetails/>} />
       </Routes>
       </main>
     </div>
