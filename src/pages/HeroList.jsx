@@ -10,7 +10,7 @@ const HeroList = ({heroes, isLoading})=>{
                 {heroes.map((hero)=>(
                     <div key={hero._id}>
                         <h3>
-                            <Link to={`heroes/${hero._id}`} >{hero.name}</Link>
+                            <Link to={`/heroes/${hero._id}`} >{hero.name}</Link>
                         </h3>
                         <p>{hero.biography}</p>
                         {hero.image && (<img src={hero.image} alt={hero.name} />)}

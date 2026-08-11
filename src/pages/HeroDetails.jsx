@@ -42,9 +42,6 @@ const HeroDetails = (props)=>{
 const handleDeleteReview = async (reviewId)=>{
         try {
             const deletedreview = await heroService.deleteReview(heroId, reviewId)
-    const handleDeleteReview = async (formData)=>{
-        try {
-            const deletedreview = heroService.deleteReview(heroId, reviewId)
             const filteredReviews = hero.reviews.filter((review)=>{
                 return review._id !== reviewId
             })
@@ -62,6 +59,14 @@ const handleDeleteReview = async (reviewId)=>{
         <>
             <main>
                 <h1>{hero.name}</h1>
+                <p>{hero.detailedBio}</p>
+                <p>{hero.powers}</p>
+                <p>{hero.strength}</p>
+                <p>{hero.specialty}</p>
+                <p>{hero.latestSave}</p>
+                <p>{hero.biggestSave}</p>
+                <p>{hero.greatestFeat}</p>
+                <p>{hero.image}</p>
             </main>
         </>
     )
@@ -70,4 +75,3 @@ const handleDeleteReview = async (reviewId)=>{
 
 }
 export default HeroDetails
-
