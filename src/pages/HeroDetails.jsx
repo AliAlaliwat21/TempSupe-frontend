@@ -9,11 +9,22 @@ const heroDetails = (props)=>{
     const { heroId } = useParams()
 
     const [hero, setHero] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(()=>{
         const fetchHero = async()=>{
-            const heroData = await heroService.singleHero(heroId)
-            setHero(heroData)
+            try {
+                const heroData = await heroService.singleHero(heroId)
+
+                setHero(heroData)
+
+            } catch (error) {
+                console.log(error)
+                
+            } finally{
+                setIsLoading(false)
+            }
+            
         }
         fetchHero()
     }, [])
