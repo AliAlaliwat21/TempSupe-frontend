@@ -1,6 +1,6 @@
-/* =========================================
+/*
    APP
-========================================= */
+*/
 
 .app-main {
   width: 100%;
@@ -8,9 +8,9 @@
 }
 
 
-/* =========================================
+/* 
    NAVIGATION
-========================================= */
+*/
 
 nav {
   position: relative;
@@ -73,9 +73,9 @@ nav a:hover {
 }
 
 
-/* =========================================
+/* 
    GENERAL BUTTONS
-========================================= */
+*/
 
 button {
   padding: 11px 18px;
@@ -111,9 +111,9 @@ button:disabled {
 }
 
 
-/* =========================================
+/* 
    LANDING / SIGN IN / SIGN UP
-========================================= */
+*/
 
 .app-main > .card {
   width: min(470px, 90%);
@@ -217,10 +217,9 @@ button:disabled {
 }
 
 
-/* =========================================
-   THE SEVEN
-   INDIVIDUAL HERO THEMES
-========================================= */
+/* 
+   The seven hero themes
+ */
 
 .homelander {
   --hero-primary: #c5262c;
@@ -278,9 +277,9 @@ button:disabled {
 }
 
 
-/* =========================================
-   HERO LIST
-========================================= */
+/*
+   hero list
+ */
 
 .hero-list-page {
   width: 100%;
@@ -497,9 +496,9 @@ button:disabled {
 }
 
 
-/* =========================================
-   HERO DETAILS
-========================================= */
+/* 
+   hero details page
+*/
 
 .hero-details-page {
   position: relative;
@@ -564,9 +563,10 @@ button:disabled {
   margin: 0 auto;
 
   padding: 80px 0 100px;
+  
 }
 
-/* TITLE */
+/* title */
 
 .hero-title-section {
   max-width: 850px;
@@ -753,3 +753,634 @@ button:disabled {
   padding-left: 20px;
 }
 
+
+/*
+   reviews
+ */
+
+.hero-reviews-section {
+  padding: 35px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 18px;
+
+  background:
+    rgba(2, 5, 12, 0.87);
+
+  backdrop-filter:
+    blur(10px);
+}
+
+
+.hero-reviews-section > h2 {
+  color: var(--hero-accent);
+
+  font-size: 2rem;
+
+  text-transform: uppercase;
+}
+
+
+.review-form-container {
+  margin: 25px 0 35px;
+
+  padding: 25px;
+
+  border-left:
+    4px solid var(--hero-primary);
+
+  border-radius: 11px;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+
+.review-form-container form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.review-form-container label {
+  font-weight: 700;
+}
+
+
+.review-form-container textarea,
+.review-form-container input {
+  width: 100%;
+
+  padding: 12px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 8px;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  color: white;
+}
+
+
+.review-form-container textarea {
+  min-height: 120px;
+
+  resize: vertical;
+}
+
+
+.review-form-container textarea:focus,
+.review-form-container input:focus {
+  outline:
+    2px solid var(--hero-primary);
+
+  border-color:
+    var(--hero-primary);
+}
+
+
+.reviews-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 18px;
+}
+
+
+.review-card {
+  padding: 22px;
+
+  border-left:
+    4px solid var(--hero-primary);
+
+  border-radius: 11px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.review-card h3 {
+  color: var(--hero-accent);
+}
+
+
+.review-card p {
+  color: rgba(255, 255, 255, 0.8);
+
+  line-height: 1.6;
+}
+
+
+.hero-details-page button {
+  background:
+    var(--hero-primary);
+}
+
+
+/* 
+   request page
+*/
+
+.service-request-page {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  min-height: calc(100vh - 72px);
+
+  padding: 65px 20px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #17233d,
+      #07101f 50%,
+      #03060c
+    );
+}
+
+
+.service-request-card {
+  width: min(700px, 100%);
+
+  padding: 40px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  border-top:
+    4px solid #d6b43b;
+
+  border-radius: 16px;
+
+  background:
+    #0d1625;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+
+.service-request-card > header {
+  margin-bottom: 30px;
+}
+
+
+.request-eyebrow {
+  margin-bottom: 10px;
+
+  color: #d6b43b;
+
+  font-size: 0.75rem;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+}
+
+
+.service-request-card h1 {
+  margin-bottom: 10px;
+
+  font-size:
+    clamp(2rem, 5vw, 3rem);
+}
+
+
+.service-request-card header p:last-child {
+  color: var(--color-text-muted);
+
+  line-height: 1.6;
+}
+
+
+/* REQUEST FORM */
+
+.service-request-card form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+
+.service-request-card label {
+  margin-top: 7px;
+
+  font-weight: 700;
+}
+
+
+.service-request-card input,
+.service-request-card textarea,
+.service-request-card select {
+  width: 100%;
+
+  padding: 12px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 8px;
+
+  background:
+    #070d17;
+
+  color: white;
+}
+
+
+.service-request-card textarea {
+  min-height: 130px;
+
+  resize: vertical;
+}
+
+
+.service-request-card input:focus,
+.service-request-card textarea:focus,
+.service-request-card select:focus {
+  outline:
+    2px solid rgba(214, 180, 59, 0.35);
+
+  border-color:
+    #d6b43b;
+}
+
+
+.service-request-card button {
+  margin-top: 18px;
+}
+
+/* 
+   DASHBOARD
+ */
+
+.dashboard-page {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+
+  padding: 60px 6% 90px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #07101f,
+      #111a2d
+    );
+}
+
+
+.dashboard-page > header {
+  max-width: 1200px;
+
+  margin: 0 auto 40px;
+}
+
+
+.dashboard-page > header h1 {
+  margin-bottom: 6px;
+
+  font-size:
+    clamp(2rem, 5vw, 3.4rem);
+}
+
+
+.dashboard-page > header h2 {
+  color: #d6b43b;
+
+  font-weight: 600;
+}
+
+
+.dashboard-request-card {
+  width: min(900px, 100%);
+
+  margin: 0 auto 18px;
+
+  padding: 25px 28px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  border-left:
+    5px solid #d6b43b;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      110deg,
+      #111b2d,
+      #0b1322
+    );
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+.dashboard-request-card header {
+  margin-bottom: 18px;
+
+  text-align: left;
+}
+
+
+.dashboard-request-card h2 {
+  margin-bottom: 0;
+
+  color: white;
+}
+
+
+.dashboard-request-card p {
+  margin-bottom: 9px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  line-height: 1.5;
+}
+
+
+.dashboard-request-card strong {
+  color: #d6b43b;
+}
+
+
+/* 
+   All service requests page
+*/
+
+.request-list-page {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+
+  padding: 60px 6% 90px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      #17233d,
+      #07101f 55%,
+      #03060c
+    );
+
+  color: white;
+}
+
+
+.request-list-page > h1 {
+  max-width: 1200px;
+
+  margin: 0 auto 40px;
+
+  font-size:
+    clamp(2.5rem, 6vw, 4.5rem);
+
+  text-transform: uppercase;
+
+  letter-spacing: -2px;
+}
+
+
+.request-list-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 22px;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+.request-card {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 25px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 13px;
+
+  background:
+    #111a2a;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.request-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #c5262c,
+      #d6b43b,
+      #0877d1
+    );
+}
+
+
+.request-card:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(214, 180, 59, 0.5);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.32);
+}
+
+
+.request-card h2 {
+  margin-bottom: 20px;
+
+  font-size: 1.45rem;
+}
+
+
+.request-card p {
+  margin-bottom: 10px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  line-height: 1.5;
+}
+
+
+.request-card p:last-child {
+  margin-bottom: 0;
+
+  color: #d6b43b;
+
+  font-weight: 700;
+}
+
+/* 
+   RESPONSIVE
+ */
+
+@media (max-width: 1000px) {
+
+  nav {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+
+
+  nav ul {
+    flex-wrap: wrap;
+
+    gap: 14px 20px;
+  }
+
+
+  .hero-background-gif,
+  .hero-background-overlay {
+    top: 0;
+
+    height: 100%;
+  }
+
+
+  .hero-bio-section {
+    grid-template-columns: 1fr;
+  }
+
+
+  .hero-stats-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  nav ul {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  .hero-list-page,
+  .dashboard-page,
+  .request-list-page {
+    padding:
+      45px 20px 70px;
+  }
+
+
+  .hero-list-header h1 {
+    letter-spacing: -2px;
+  }
+
+
+  .hero-details-container {
+    width: 92%;
+
+    padding:
+      50px 0 70px;
+  }
+
+
+  .hero-title-section {
+    margin-bottom: 45px;
+
+    padding-left: 18px;
+  }
+
+
+  .hero-title-section h1 {
+    letter-spacing: -2px;
+  }
+
+
+  .hero-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .hero-reviews-section {
+    padding: 20px;
+  }
+
+
+  .hero-detail-gif {
+    height: 250px;
+  }
+
+
+  .service-request-page {
+    padding:
+      40px 16px;
+  }
+
+
+  .service-request-card {
+    padding: 25px;
+  }
+
+
+  .actions {
+    flex-direction: column;
+  }
+
+}
+
+.hero-list-page {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url('https://images.wallpapersden.com/image/download/the-boys-season-2_71736_1920x1080.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

@@ -63,7 +63,8 @@ const App = () => {
         <Route path='request-support' element={<RequestSupport/>} />
 
         <Route path="/service-requests" element={<RequestList/>}  />
-
+        
+        <Route path="/service-requests/:requestId/edit" element={<RequestSupport />} />
       </Routes>
       
       </main>
