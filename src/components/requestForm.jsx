@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router'
 
 import * as requestServices from '../services/requestServices'
 import * as heroService from '../services/heroServices'
-
+import Loading from './Loading'
 
 const RequestForm = (props) => {
 
@@ -22,7 +22,7 @@ const RequestForm = (props) => {
 
 
     const [formData, setFormData] = useState(initialState)
-
+    const [isLoading, setIsLoading] = useState(true)
     const [heroes, setHeroes] = useState([])
 
 
@@ -62,49 +62,53 @@ const RequestForm = (props) => {
     }
 
 
-    useEffect(() => {
+ useEffect(() => {
 
-        const fetchHeroes = async () => {
+  const loadFormData = async () => {
 
-            const heroData = await heroService.allHeroes()
+    try {
 
-            setHeroes(heroData)
+      const heroData = await heroService.allHeroes()
+      setHeroes(heroData)
 
-        }
+      if (requestId) {
+
+        const requestData =
+          await requestServices.singleRequest(requestId)
+
+        setFormData({
+          hero: requestData.hero?._id || requestData.hero,
+          requestType: requestData.requestType,
+          description: requestData.description,
+          location: requestData.location,
+          requestedDate: requestData.requestedDate
+            ? requestData.requestedDate.slice(0, 10)
+            : '',
+          status: requestData.status
+        })
+
+      }
+
+    } catch (error) {
+
+      console.log(error)
+
+    } finally {
+
+      setIsLoading(false)
+
+    }
+
+  }
+
+  loadFormData()
+
+}, [requestId])
 
 
-        const fetchRequest = async () => {
-
-            const requestData =
-                await requestServices.singleRequest(requestId)
-
-
-            setFormData({
-                hero: requestData.hero?._id || requestData.hero,
-                requestType: requestData.requestType,
-                description: requestData.description,
-                location: requestData.location,
-                requestedDate: requestData.requestedDate
-                    ? requestData.requestedDate.slice(0, 10)
-                    : '',
-                status: requestData.status
-            })
-
-        }
-
-
-        fetchHeroes()
-
-
-        if (requestId) {
-
-            fetchRequest()
-
-        }
-
-
-    }, [requestId])
-
+    if (isLoading) {
+  return <Loading />
+    }
 
     return (
 

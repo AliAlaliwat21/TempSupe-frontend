@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import * as requestServices from '../services/requestServices'
 import { Link } from 'react-router'
+import Loading from './Loading'
 
 const RequestList = ()=>{
 
@@ -23,9 +24,9 @@ const RequestList = ()=>{
         
     }, [])
    
-//     if (isLoading) {
-//     return <p>Loading...</p>
-//   }
+        if (isLoading) {
+        return <Loading />
+        }
 
   
   return (
