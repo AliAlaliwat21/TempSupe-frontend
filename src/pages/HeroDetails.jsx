@@ -10,6 +10,12 @@ const HeroDetails = (props)=>{
 
     const [hero, setHero] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
+
+    const [editingReviewId, setEditingReviewId] = useState(null)
+    const [editReviewData, setEditReviewData] = useState({
+        content: '',
+        rating: ''
+            })
     
 
     useEffect(()=>{
@@ -51,6 +57,40 @@ const handleDeleteReview = async (reviewId)=>{
         console.log(error)
         }
     }
+
+    const handleEditReview = (review) => {
+    setEditingReviewId(review._id)
+
+    setEditReviewData({
+        content: review.content,
+        rating: review.rating
+    })
+    }
+
+    const handleEditReviewChange = (event) => {
+    setEditReviewData({...editReviewData, [event.target.name]: event.target.value})
+    }
+
+    const handleUpdateReview = async (reviewId) => {
+  try {
+    const updatedReview = await heroService.updateReview(
+      heroId,
+      reviewId,
+      editReviewData
+    )
+
+    const updatedReviews = hero.reviews.map((review) => {
+      return review._id === reviewId ? updatedReview : review
+    })
+
+    setHero({...hero, reviews: updatedReviews})
+
+    setEditingReviewId(null)
+
+  } catch (error) {
+    console.log(error)
+  }
+}
 
         if (isLoading) return <p>Loading hero...</p>
 
@@ -167,42 +207,71 @@ return (
 
         <div className="reviews-grid">
 
-          {hero.reviews.length > 0 ? (
+         {hero.reviews.map((review) => (
 
-            hero.reviews.map((review) => (
+        <article
+            key={review._id}
+            className="review-card"
+        >
 
-              <article
-                key={review._id}
-                className="review-card"
-              >
+            {editingReviewId === review._id ? (
 
-                <h3>
-                  {review.rating}/5 ★
-                </h3>
+            <>
+                <textarea
+                name="content"
+                value={editReviewData.content}
+                onChange={handleEditReviewChange}
+                />
 
-                <p>
-                  {review.content}
-                </p>
+                <input
+                type="number"
+                name="rating"
+                min="1"
+                max="5"
+                value={editReviewData.rating}
+                onChange={handleEditReviewChange}
+                />
 
                 <button
-                  onClick={() =>
-                    handleDeleteReview(review._id)
-                  }
+                onClick={() => handleUpdateReview(review._id)}
                 >
-                  Delete Review
+                Save
                 </button>
 
-              </article>
+                <button
+                onClick={() => setEditingReviewId(null)}
+                >
+                Cancel
+                </button>
+            </>
 
-            ))
+            ) : (
 
-          ) : (
+            <>
+                <h3>
+                {review.rating}/5 ★
+                </h3>
 
-            <p>
-              No reviews yet.
-            </p>
+                <p>{review.content}</p>
 
-          )}
+                <button
+                onClick={() => handleEditReview(review)}
+                >
+                Edit Review
+                </button>
+
+                <button
+                onClick={() => handleDeleteReview(review._id)}
+                >
+                Delete Review
+                </button>
+            </>
+
+            )}
+
+  </article>
+
+))}
 
         </div>
 
