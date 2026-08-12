@@ -1545,8 +1545,6 @@ button:disabled {
 }
 
 
-/* GUNPOWDER */
-
 .gunpowder {
   --hero-primary: #bd7b32;
   --hero-secondary: #4b3020;
@@ -1554,8 +1552,6 @@ button:disabled {
   --hero-glow: rgba(189, 123, 50, 0.45);
 }
 
-
-/* MINDSTORM */
 
 .mindstorm {
   --hero-primary: #7657d8;
@@ -1565,8 +1561,6 @@ button:disabled {
 }
 
 
-/* SWATTO */
-
 .swatto {
   --hero-primary: #6f9e56;
   --hero-secondary: #273d22;
@@ -1574,8 +1568,6 @@ button:disabled {
   --hero-glow: rgba(111, 158, 86, 0.45);
 }
 
-
-/* TNT TWINS */
 
 .tnt-twins {
   --hero-primary: #e05a32;
