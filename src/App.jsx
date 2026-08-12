@@ -11,6 +11,8 @@ import * as heroServices from "./services/heroServices"
 import * as requestService from "./services/requestServices"
 import HeroDetails from "./pages/HeroDetails"
 import RequestSupport from "./pages/requestSupport"
+import RequestList from "./components/RequestList"
+
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')
@@ -59,6 +61,8 @@ const App = () => {
         <Route path='heroes/:heroId' element={<HeroDetails/>} />
 
         <Route path='request-support' element={<RequestSupport/>} />
+
+        <Route path="/service-requests" element={<RequestList/>}  />
       </Routes>
       </main>
     </div>
