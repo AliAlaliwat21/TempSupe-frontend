@@ -1384,3 +1384,202 @@ button:disabled {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+/* =========================================================
+   HERO GENERATION SWITCH
+   ========================================================= */
+
+
+/* CURRENT THE SEVEN BACKGROUND */
+
+.hero-list-page.current-team {
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url('https://images.wallpapersden.com/image/download/the-boys-season-2_71736_1920x1080.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/* PAYBACK / OLDER GENERATION BACKGROUND */
+
+.hero-list-page.legacy-team {
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.42),
+      rgba(0, 0, 0, 0.65)
+    ),
+    url('https://wallpapercave.com/wp/wp11453568.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/* =========================================================
+   GENERATION SWITCH CARD
+   ========================================================= */
+
+.generation-switch-card {
+  border: 2px solid #d4af37;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.generation-switch-button {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  padding: 0;
+
+  background: transparent;
+
+  color: inherit;
+  font: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+
+.generation-switch-button .hero-card-content {
+  height: 100%;
+}
+
+
+.generation-switch-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/* button used while looking at The Seven */
+
+.switch-to-legacy {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(65, 48, 18, 0.96),
+      rgba(14, 23, 39, 0.98)
+    );
+}
+
+
+.switch-to-legacy .hero-card-label {
+  color: #d4af37;
+}
+
+
+.switch-to-legacy .hero-card-specialty {
+  color: #f1c75b;
+}
+
+
+.switch-to-legacy .hero-card-action {
+  color: #f1c75b;
+}
+
+
+/* button used while looking at Payback */
+
+.switch-to-current {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 35, 58, 0.98),
+      rgba(10, 18, 31, 0.98)
+    );
+}
+
+
+.switch-to-current .hero-card-label {
+  color: #6fd3ff;
+}
+
+
+.switch-to-current .hero-card-specialty {
+  color: #8edcff;
+}
+
+
+.switch-to-current .hero-card-action {
+  color: #8edcff;
+}
+
+
+
+/* =========================================================
+   PAYBACK HERO THEMES
+   These are also used by HeroDetails.jsx
+   ========================================================= */
+
+
+/* SOLDIER BOY */
+
+.soldier-boy {
+  --hero-primary: #72865a;
+  --hero-secondary: #283425;
+  --hero-accent: #d0b46c;
+  --hero-glow: rgba(208, 180, 108, 0.45);
+}
+
+
+/* CRIMSON COUNTESS */
+
+.crimson-countess {
+  --hero-primary: #d62929;
+  --hero-secondary: #571515;
+  --hero-accent: #ff6b5f;
+  --hero-glow: rgba(214, 41, 41, 0.45);
+}
+
+
+/* GUNPOWDER */
+
+.gunpowder {
+  --hero-primary: #bd7b32;
+  --hero-secondary: #4b3020;
+  --hero-accent: #e8aa5b;
+  --hero-glow: rgba(189, 123, 50, 0.45);
+}
+
+
+/* MINDSTORM */
+
+.mindstorm {
+  --hero-primary: #7657d8;
+  --hero-secondary: #292049;
+  --hero-accent: #b89cff;
+  --hero-glow: rgba(118, 87, 216, 0.45);
+}
+
+
+/* SWATTO */
+
+.swatto {
+  --hero-primary: #6f9e56;
+  --hero-secondary: #273d22;
+  --hero-accent: #aadd80;
+  --hero-glow: rgba(111, 158, 86, 0.45);
+}
+
+
+/* TNT TWINS */
+
+.tnt-twins {
+  --hero-primary: #e05a32;
+  --hero-secondary: #562319;
+  --hero-accent: #ffb15b;
+  --hero-glow: rgba(224, 90, 50, 0.45);
+}
