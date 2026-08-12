@@ -9,7 +9,7 @@ const HeroList = ({ heroes, isLoading }) => {
     return <Loading />
     }
 
-
+    const [showLegacy, setShowLegacy] = useState(false)
 
   const displayedHeroes = heroes.filter((hero) => {
 
