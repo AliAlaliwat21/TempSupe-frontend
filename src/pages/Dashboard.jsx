@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import { useParams } from 'react-router'
 import * as requestServices from '../services/requestServices'
+import { useNavigate } from 'react-router'
 
 const Dashboard = (props) => {
 
+    const navigate = useNavigate()
     const [allUserRequests, setAllUsersRequests] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     
@@ -24,6 +26,21 @@ const Dashboard = (props) => {
         fetchUserRequest()
     
     }, [])
+
+    const handleDeleteRequest = async (requestId) => {
+        try {
+            await requestServices.deleteRequest(requestId)
+
+            const filteredRequests = allUserRequests.filter((request) => {
+            return request._id !== requestId
+            })
+
+            setAllUsersRequests(filteredRequests)
+
+        } catch (error) {
+            console.log(error)
+        }
+}
 
     if (isLoading) return <p>Loading...</p>
 
@@ -89,6 +106,26 @@ const Dashboard = (props) => {
                             <strong>Status:</strong>{' '}
                             {request.status}
                         </p>
+
+                        <div className="actions">
+
+                            <button
+                                onClick={() =>
+                                navigate(`/service-requests/${request._id}/edit`)
+                                }
+                            >
+                                Edit Request
+                            </button>
+
+                            <button
+                                onClick={() =>
+                                handleDeleteRequest(request._id)
+                                }
+                            >
+                                Delete Request
+                            </button>
+
+                        </div>
 
                     </article>
 

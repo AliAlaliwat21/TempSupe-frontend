@@ -11,7 +11,7 @@ const Nav = (props) => {
         <nav>
 
             <Link className="nav-brand" to="/">
-                Temp-Supe
+                TempSupe
             </Link>
 
             {props.user ? (
