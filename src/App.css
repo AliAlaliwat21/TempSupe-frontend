@@ -1368,35 +1368,28 @@ button:disabled {
   }
 
 }
+/* =========================================
+   HERO GENERATION BACKGROUNDS
+========================================= */
 
 .hero-list-page {
-  min-height: 100vh;
-
-  background:
-    linear-gradient(
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.45)
-    ),
-    url('https://images.wallpapersden.com/image/download/the-boys-season-2_71736_1920x1080.jpg');
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
-/* =========================================================
-   HERO GENERATION SWITCH
-   ========================================================= */
 
-
-/* CURRENT THE SEVEN BACKGROUND */
+/* =========================================
+   CURRENT THE SEVEN
+========================================= */
 
 .hero-list-page.current-team {
+  min-height: calc(100vh - 72px);
+
   background:
     linear-gradient(
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.45)
+      rgba(3, 8, 18, 0.48),
+      rgba(3, 8, 18, 0.72)
     ),
     url('https://images.wallpapersden.com/image/download/the-boys-season-2_71736_1920x1080.jpg');
 
@@ -1407,13 +1400,17 @@ button:disabled {
 }
 
 
-/* PAYBACK / OLDER GENERATION BACKGROUND */
+/* =========================================
+   PAYBACK / OLD GENERATION
+========================================= */
 
 .hero-list-page.legacy-team {
+  min-height: calc(100vh - 72px);
+
   background:
     linear-gradient(
-      rgba(0, 0, 0, 0.42),
-      rgba(0, 0, 0, 0.65)
+      rgba(23, 16, 7, 0.40),
+      rgba(10, 7, 3, 0.72)
     ),
     url('https://wallpapercave.com/wp/wp11453568.jpg');
 
@@ -1424,28 +1421,68 @@ button:disabled {
 }
 
 
-/* =========================================================
+/* =========================================
    GENERATION SWITCH CARD
-   ========================================================= */
+========================================= */
 
 .generation-switch-card {
-  border: 2px solid #d4af37;
-  cursor: pointer;
+  --hero-primary: #d6b43b;
+  --hero-secondary: #17130a;
+  --hero-accent: #f2cf59;
+  --hero-glow: rgba(214, 180, 59, 0.5);
+
+  min-height: 100%;
+
   overflow: hidden;
-  position: relative;
+
+  border:
+    1px solid rgba(214, 180, 59, 0.35);
+
+  border-top:
+    4px solid #d6b43b;
+
+  border-radius: 16px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 
+.generation-switch-card:hover {
+  transform: translateY(-8px);
+
+  border-color: #d6b43b;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(214, 180, 59, 0.35);
+}
+
+
+/* =========================================
+   BUTTON INSIDE SWITCH CARD
+========================================= */
+
 .generation-switch-button {
+  display: flex;
+
   width: 100%;
   height: 100%;
 
-  border: none;
+  margin: 0;
   padding: 0;
+
+  border: none;
+  border-radius: 0;
 
   background: transparent;
 
-  color: inherit;
+  color: white;
+
   font: inherit;
 
   text-align: left;
@@ -1454,124 +1491,325 @@ button:disabled {
 }
 
 
+.generation-switch-button:hover {
+  transform: none;
+
+  filter: none;
+
+  background: transparent;
+}
+
+
 .generation-switch-button .hero-card-content {
+  width: 100%;
   height: 100%;
 }
 
 
-.generation-switch-card:hover {
-  transform: translateY(-5px);
-}
-
-
-/* button used while looking at The Seven */
+/* =========================================
+   VIEW PAYBACK CARD
+========================================= */
 
 .switch-to-legacy {
   background:
     linear-gradient(
       145deg,
-      rgba(65, 48, 18, 0.96),
-      rgba(14, 23, 39, 0.98)
+      rgba(115, 82, 28, 0.36),
+      rgba(20, 20, 18, 0.97)
     );
 }
 
 
 .switch-to-legacy .hero-card-label {
-  color: #d4af37;
+  color: #d6b43b;
 }
 
 
 .switch-to-legacy .hero-card-specialty {
-  color: #f1c75b;
+  color: #f0c84e;
 }
 
 
 .switch-to-legacy .hero-card-action {
-  color: #f1c75b;
+  color: #f0c84e;
 }
 
 
-/* button used while looking at Payback */
+/* =========================================
+   RETURN TO THE SEVEN CARD
+========================================= */
 
 .switch-to-current {
   background:
     linear-gradient(
       145deg,
-      rgba(16, 35, 58, 0.98),
-      rgba(10, 18, 31, 0.98)
+      rgba(17, 71, 128, 0.40),
+      rgba(8, 18, 34, 0.98)
     );
 }
 
 
 .switch-to-current .hero-card-label {
-  color: #6fd3ff;
+  color: #68b9ff;
 }
 
 
 .switch-to-current .hero-card-specialty {
-  color: #8edcff;
+  color: #7fc6ff;
 }
 
 
 .switch-to-current .hero-card-action {
-  color: #8edcff;
+  color: #7fc6ff;
 }
 
 
+/* =========================================
+   PAYBACK PAGE HEADER
+========================================= */
 
-/* =========================================================
+.legacy-team .vought-label {
+  color: #d6ae58;
+}
+
+
+.legacy-team .hero-list-header h1 {
+  color: #f0d29a;
+
+  text-shadow:
+    0 0 30px rgba(214, 174, 88, 0.32);
+}
+
+
+.legacy-team .hero-list-intro {
+  color: rgba(255, 240, 215, 0.75);
+}
+
+
+/* =========================================
+   CURRENT SEVEN PAGE HEADER
+========================================= */
+
+.current-team .vought-label {
+  color: #d6b43b;
+}
+
+
+.current-team .hero-list-header h1 {
+  color: white;
+
+  text-shadow:
+    none;
+}
+
+
+/* =========================================
    PAYBACK HERO THEMES
-   These are also used by HeroDetails.jsx
-   ========================================================= */
+========================================= */
 
 
 /* SOLDIER BOY */
 
 .soldier-boy {
-  --hero-primary: #72865a;
-  --hero-secondary: #283425;
-  --hero-accent: #d0b46c;
-  --hero-glow: rgba(208, 180, 108, 0.45);
+  --hero-primary: #778559;
+  --hero-secondary: #1a2317;
+  --hero-accent: #d8bd70;
+  --hero-glow: rgba(216, 189, 112, 0.42);
 }
 
 
 /* CRIMSON COUNTESS */
 
 .crimson-countess {
-  --hero-primary: #d62929;
-  --hero-secondary: #571515;
-  --hero-accent: #ff6b5f;
-  --hero-glow: rgba(214, 41, 41, 0.45);
+  --hero-primary: #b52c2c;
+  --hero-secondary: #321010;
+  --hero-accent: #ff6a5e;
+  --hero-glow: rgba(213, 49, 49, 0.42);
 }
 
+
+/* GUNPOWDER */
 
 .gunpowder {
-  --hero-primary: #bd7b32;
-  --hero-secondary: #4b3020;
-  --hero-accent: #e8aa5b;
-  --hero-glow: rgba(189, 123, 50, 0.45);
+  --hero-primary: #a86932;
+  --hero-secondary: #302015;
+  --hero-accent: #e4a458;
+  --hero-glow: rgba(196, 126, 58, 0.40);
 }
 
+
+/* MINDSTORM */
 
 .mindstorm {
-  --hero-primary: #7657d8;
-  --hero-secondary: #292049;
-  --hero-accent: #b89cff;
-  --hero-glow: rgba(118, 87, 216, 0.45);
+  --hero-primary: #6950bb;
+  --hero-secondary: #211a38;
+  --hero-accent: #b39bff;
+  --hero-glow: rgba(111, 83, 207, 0.42);
 }
 
+
+/* SWATTO */
 
 .swatto {
-  --hero-primary: #6f9e56;
-  --hero-secondary: #273d22;
-  --hero-accent: #aadd80;
-  --hero-glow: rgba(111, 158, 86, 0.45);
+  --hero-primary: #66834b;
+  --hero-secondary: #1c2b18;
+  --hero-accent: #add282;
+  --hero-glow: rgba(108, 145, 74, 0.40);
 }
 
 
+/* TNT TWINS */
+
 .tnt-twins {
-  --hero-primary: #e05a32;
-  --hero-secondary: #562319;
-  --hero-accent: #ffb15b;
-  --hero-glow: rgba(224, 90, 50, 0.45);
+  --hero-primary: #d45a32;
+  --hero-secondary: #391812;
+  --hero-accent: #ffae63;
+  --hero-glow: rgba(214, 89, 50, 0.42);
+}
+
+
+/* =========================================
+   PAYBACK CARDS
+========================================= */
+
+.legacy-team .hero-list-card:not(.generation-switch-card) {
+  background:
+    linear-gradient(
+      150deg,
+      rgba(30, 27, 20, 0.96),
+      rgba(12, 15, 18, 0.97)
+    );
+
+  backdrop-filter: blur(3px);
+}
+
+
+.legacy-team .hero-list-card:hover {
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.48),
+    0 0 28px var(--hero-glow);
+}
+
+
+/* =========================================
+   LOADING SCREEN
+   KEEP THIS
+========================================= */
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: calc(100vh - 72px);
+
+  background: #050912;
+
+  color: white;
+}
+
+
+.loading-brand {
+  margin-bottom: 25px;
+
+  color: #d6b43b;
+
+  font-size: 0.75rem;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+}
+
+
+.loading-spinner {
+  width: 55px;
+  height: 55px;
+
+  border:
+    4px solid rgba(255, 255, 255, 0.12);
+
+  border-top-color:
+    #d6b43b;
+
+  border-radius: 50%;
+
+  animation:
+    spin 0.8s linear infinite;
+}
+
+
+.loading-text {
+  margin-top: 20px;
+
+  color:
+    rgba(255, 255, 255, 0.7);
+
+  font-weight: 600;
+}
+
+
+.loading-dots span {
+  animation:
+    loadingDots 1.4s infinite;
+}
+
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+
+@keyframes spin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+@keyframes loadingDots {
+
+  0%,
+  60%,
+  100% {
+    opacity: 0.2;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE GENERATION PAGE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .hero-list-page.current-team,
+  .hero-list-page.legacy-team {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+
+
+  .generation-switch-card {
+    min-height: 320px;
+  }
+
 }
