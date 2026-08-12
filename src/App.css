@@ -1,6 +1,6 @@
-/* =========================================
+/*
    APP
-========================================= */
+*/
 
 .app-main {
   width: 100%;
@@ -8,9 +8,9 @@
 }
 
 
-/* =========================================
+/* 
    NAVIGATION
-========================================= */
+*/
 
 nav {
   position: relative;
@@ -73,9 +73,9 @@ nav a:hover {
 }
 
 
-/* =========================================
+/* 
    GENERAL BUTTONS
-========================================= */
+*/
 
 button {
   padding: 11px 18px;
@@ -111,9 +111,9 @@ button:disabled {
 }
 
 
-/* =========================================
+/* 
    LANDING / SIGN IN / SIGN UP
-========================================= */
+*/
 
 .app-main > .card {
   width: min(470px, 90%);
@@ -217,10 +217,9 @@ button:disabled {
 }
 
 
-/* =========================================
-   THE SEVEN
-   INDIVIDUAL HERO THEMES
-========================================= */
+/* 
+   The seven hero themes
+ */
 
 .homelander {
   --hero-primary: #c5262c;
@@ -278,9 +277,9 @@ button:disabled {
 }
 
 
-/* =========================================
-   HERO LIST
-========================================= */
+/*
+   hero list
+ */
 
 .hero-list-page {
   width: 100%;
@@ -497,9 +496,9 @@ button:disabled {
 }
 
 
-/* =========================================
-   HERO DETAILS
-========================================= */
+/* 
+   hero details page
+*/
 
 .hero-details-page {
   position: relative;
@@ -567,7 +566,7 @@ button:disabled {
   
 }
 
-/* TITLE */
+/* title */
 
 .hero-title-section {
   max-width: 850px;
@@ -755,9 +754,9 @@ button:disabled {
 }
 
 
-/* =========================================
-   REVIEWS
-========================================= */
+/*
+   reviews
+ */
 
 .hero-reviews-section {
   padding: 35px;
@@ -889,9 +888,9 @@ button:disabled {
 }
 
 
-/* =========================================
-   REQUEST SUPPORT PAGE
-========================================= */
+/* 
+   request page
+*/
 
 .service-request-page {
   display: flex;
@@ -1026,10 +1025,9 @@ button:disabled {
   margin-top: 18px;
 }
 
-/* =========================================
+/* 
    DASHBOARD
-   PERSONAL USER VIEW
-========================================= */
+ */
 
 .dashboard-page {
   width: 100%;
@@ -1123,10 +1121,9 @@ button:disabled {
 }
 
 
-/* =========================================
-   ALL SERVICE REQUESTS
-   COMMUNITY / ACTIVITY VIEW
-========================================= */
+/* 
+   All service requests page
+*/
 
 .request-list-page {
   width: 100%;
@@ -1252,9 +1249,9 @@ button:disabled {
   font-weight: 700;
 }
 
-/* =========================================
+/* 
    RESPONSIVE
-========================================= */
+ */
 
 @media (max-width: 1000px) {
 
@@ -1372,6 +1369,18 @@ button:disabled {
 
 }
 
+.hero-list-page {
+  min-height: 100vh;
 
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url('https://images.wallpapersden.com/image/download/the-boys-season-2_71736_1920x1080.jpg');
 
-
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
