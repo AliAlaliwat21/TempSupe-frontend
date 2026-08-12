@@ -31,12 +31,12 @@ const RequestList = ()=>{
   return (
   <main className="request-list-page">
 
-    <h1>My Service Requests</h1>
+    <h1>All Service Requests</h1>
 
     <section className="request-list-grid">
 
       {requests.length === 0 ? (
-        <p>You have no requests!</p>
+        <p>No service requests have been submitted yet.</p>
       ) : (
         requests.map((request) => (
           <article
@@ -57,11 +57,6 @@ const RequestList = ()=>{
             <p>
               Submitted by: {request.requester?.username}
             </p>
-
-            <Link to={`/service-requests/${request._id}`}>
-              View Request
-            </Link>
-
           </article>
         ))
       )}

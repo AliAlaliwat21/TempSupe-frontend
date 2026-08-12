@@ -5,14 +5,13 @@ import * as requestServices from '../services/requestServices'
 
 const Dashboard = (props) => {
 
-    const { requestId } = useParams()
     const [allUserRequests, setAllUsersRequests] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     
     useEffect(() => {
         const fetchUserRequest = async () => {
             try{
-            const requestsData =  await requestServices.allRequests()
+            const requestsData =  await requestServices.userRequests()
             setAllUsersRequests(requestsData)
             
         }catch(error){

@@ -22,6 +22,31 @@ const allRequests = async ()=>{
     
 }
 
+const userRequests = async () => {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/service-requests/my-requests`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      }
+    )
+
+    const fetchedData = await res.json()
+
+    if (!res.ok) {
+      throw new Error(fetchedData.message)
+    }
+
+    return fetchedData
+
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 
 const createRequest = async(formData)=>{
     try {
@@ -112,4 +137,4 @@ try {
 }
 }
 
-export {allRequests, createRequest, singleRequest, deleteRequest, updateRequest}
+export {allRequests, createRequest, singleRequest, deleteRequest, updateRequest, userRequests}
