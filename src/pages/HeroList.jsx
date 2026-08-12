@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
-import Loading from '../components/Loading'
 
 
 const HeroList = ({ heroes, isLoading }) => {
 
-    if (isLoading) {
-    return <Loading />
-    }
+
+  const [showLegacy, setShowLegacy] = useState(false)
+
+
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
 
 
 

@@ -1385,89 +1385,193 @@ button:disabled {
   background-attachment: fixed;
 }
 
-.loading-screen {
-  display: flex;
-  flex-direction: column;
+/* =========================================================
+   HERO GENERATION SWITCH
+   ========================================================= */
 
-  align-items: center;
-  justify-content: center;
 
-  min-height: calc(100vh - 72px);
+/* CURRENT THE SEVEN BACKGROUND */
 
-  background: #050912;
+.hero-list-page.current-team {
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url('https://images.wallpapersden.com/image/download/the-boys-season-2_71736_1920x1080.jpg');
 
-  color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 
-.loading-brand {
-  color: #d6b43b;
+/* PAYBACK / OLDER GENERATION BACKGROUND */
 
-  font-size: 0.75rem;
-  font-weight: 900;
+.hero-list-page.legacy-team {
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.42),
+      rgba(0, 0, 0, 0.65)
+    ),
+    url('https://wallpapercave.com/wp/wp11453568.jpg');
 
-  letter-spacing: 4px;
-
-  margin-bottom: 25px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 
-.loading-spinner {
-  width: 55px;
-  height: 55px;
+/* =========================================================
+   GENERATION SWITCH CARD
+   ========================================================= */
 
-  border: 4px solid rgba(255, 255, 255, 0.12);
-  border-top-color: #d6b43b;
-
-  border-radius: 50%;
-
-  animation: spin 0.8s linear infinite;
+.generation-switch-card {
+  border: 2px solid #d4af37;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
 }
 
 
-.loading-text {
-  margin-top: 20px;
+.generation-switch-button {
+  width: 100%;
+  height: 100%;
 
-  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  padding: 0;
 
-  font-weight: 600;
+  background: transparent;
+
+  color: inherit;
+  font: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
 }
 
 
-.loading-dots span {
-  animation: loadingDots 1.4s infinite;
+.generation-switch-button .hero-card-content {
+  height: 100%;
 }
 
 
-.loading-dots span:nth-child(2) {
-  animation-delay: 0.2s;
+.generation-switch-card:hover {
+  transform: translateY(-5px);
 }
 
 
-.loading-dots span:nth-child(3) {
-  animation-delay: 0.4s;
+/* button used while looking at The Seven */
+
+.switch-to-legacy {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(65, 48, 18, 0.96),
+      rgba(14, 23, 39, 0.98)
+    );
 }
 
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+.switch-to-legacy .hero-card-label {
+  color: #d4af37;
 }
 
 
-@keyframes loadingDots {
-  0%,
-  60%,
-  100% {
-    opacity: 0.2;
-  }
+.switch-to-legacy .hero-card-specialty {
+  color: #f1c75b;
+}
 
-  30% {
-    opacity: 1;
-  }
+
+.switch-to-legacy .hero-card-action {
+  color: #f1c75b;
+}
+
+
+/* button used while looking at Payback */
+
+.switch-to-current {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 35, 58, 0.98),
+      rgba(10, 18, 31, 0.98)
+    );
+}
+
+
+.switch-to-current .hero-card-label {
+  color: #6fd3ff;
+}
+
+
+.switch-to-current .hero-card-specialty {
+  color: #8edcff;
+}
+
+
+.switch-to-current .hero-card-action {
+  color: #8edcff;
+}
+
+
+
+/* =========================================================
+   PAYBACK HERO THEMES
+   These are also used by HeroDetails.jsx
+   ========================================================= */
+
+
+/* SOLDIER BOY */
+
+.soldier-boy {
+  --hero-primary: #72865a;
+  --hero-secondary: #283425;
+  --hero-accent: #d0b46c;
+  --hero-glow: rgba(208, 180, 108, 0.45);
+}
+
+
+/* CRIMSON COUNTESS */
+
+.crimson-countess {
+  --hero-primary: #d62929;
+  --hero-secondary: #571515;
+  --hero-accent: #ff6b5f;
+  --hero-glow: rgba(214, 41, 41, 0.45);
+}
+
+
+.gunpowder {
+  --hero-primary: #bd7b32;
+  --hero-secondary: #4b3020;
+  --hero-accent: #e8aa5b;
+  --hero-glow: rgba(189, 123, 50, 0.45);
+}
+
+
+.mindstorm {
+  --hero-primary: #7657d8;
+  --hero-secondary: #292049;
+  --hero-accent: #b89cff;
+  --hero-glow: rgba(118, 87, 216, 0.45);
+}
+
+
+.swatto {
+  --hero-primary: #6f9e56;
+  --hero-secondary: #273d22;
+  --hero-accent: #aadd80;
+  --hero-glow: rgba(111, 158, 86, 0.45);
+}
+
+
+.tnt-twins {
+  --hero-primary: #e05a32;
+  --hero-secondary: #562319;
+  --hero-accent: #ffb15b;
+  --hero-glow: rgba(224, 90, 50, 0.45);
 }
