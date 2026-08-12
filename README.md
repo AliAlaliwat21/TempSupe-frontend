@@ -67,4 +67,4 @@ npm run dev
 
 ## Contributors
 
-TempSupe was developed as a collaborative MERN stack project.
+TempSupe was developed as a collaborative effort, by Ali Alaiwat, and Husain Ali. Idea by Ali the goat lowkey
