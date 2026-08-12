@@ -90,6 +90,7 @@ const handleDeleteReview = async (reviewId)=>{
   } catch (error) {
     console.log(error)
   }
+  
 }
 
         if (isLoading) return <p>Loading hero...</p>
