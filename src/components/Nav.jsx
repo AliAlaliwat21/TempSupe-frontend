@@ -41,6 +41,12 @@ const Nav = (props) => {
                     </li>
 
                     <li>
+                        <Link to="/service-requests">
+                            All Service Requests
+                        </Link>
+                    </li>
+
+                    <li>
                         <Link to="/" onClick={handleSignOut}>
                             Sign Out
                         </Link>
