@@ -12,7 +12,7 @@ const Dashboard = (props) => {
     useEffect(() => {
         const fetchUserRequest = async () => {
             try{
-            const requestsData =  await requestServices.singleRequest(requestId)
+            const requestsData =  await requestServices.allRequests()
             setAllUsersRequests(requestsData)
             
         }catch(error){
@@ -24,7 +24,7 @@ const Dashboard = (props) => {
     }
         fetchUserRequest()
     
-    }, [requestId])
+    }, [])
 
     if (isLoading) return <p>Loading...</p>
 
