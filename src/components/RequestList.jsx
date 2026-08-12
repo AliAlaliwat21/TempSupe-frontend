@@ -23,16 +23,27 @@ const RequestList = ()=>{
         
     }, [])
    
-    if (isLoading) {
-    return <p>Loading...</p>
-  }
+//     if (isLoading) {
+//     return <p>Loading...</p>
+//   }
 
+  
   return (
-    <>
-        <h1>My Service Requests</h1>
+  <main className="request-list-page">
 
-        {requests.length === 0 ? <p>You have no requests!</p> : requests.map((request)=>(
-            <article key={request._id}>
+    <h1>My Service Requests</h1>
+
+    <section className="request-list-grid">
+
+      {requests.length === 0 ? (
+        <p>You have no requests!</p>
+      ) : (
+        requests.map((request) => (
+          <article
+            key={request._id}
+            className="request-card"
+          >
+
             <h2>{request.requestType}</h2>
 
             <p>
@@ -43,13 +54,23 @@ const RequestList = ()=>{
               Status: {request.status}
             </p>
 
+            <p>
+              Submitted by: {request.requester?.username}
+            </p>
+
             <Link to={`/service-requests/${request._id}`}>
               View Request
             </Link>
+
           </article>
-        )) }
-    </>
-  )
+        ))
+      )}
+
+    </section>
+
+  </main>
+)
+
     
 }
 export default RequestList
