@@ -1,10 +1,11 @@
 import { Link } from 'react-router'
+import Loading from '../components/Loading'
 
 const HeroList = ({ heroes, isLoading }) => {
 
-  if (isLoading) {
-    return <p>Loading...</p>
-  }
+    if (isLoading) {
+    return <Loading />
+    }
 
   return (
     <main className="hero-list-page">

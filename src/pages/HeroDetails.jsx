@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 import * as heroService from '../services/heroServices'
 import ReviewForm from '../components/ReviewForm'
-
+import Loading from '../components/Loading'
 
 const HeroDetails = (props)=>{
     const navigate = useNavigate()
@@ -90,10 +90,12 @@ const handleDeleteReview = async (reviewId)=>{
   } catch (error) {
     console.log(error)
   }
-  
+
 }
 
-        if (isLoading) return <p>Loading hero...</p>
+        if (isLoading) {
+        return <Loading />
+        }
 
         if (!hero) return <p>Hero not found.</p>
 
