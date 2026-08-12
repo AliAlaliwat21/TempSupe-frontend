@@ -48,7 +48,7 @@ const RequestForm = (props) => {
                 formData
             )
 
-            navigate('/service-requests')
+            navigate('/heroes/')
 
         } else {
 
