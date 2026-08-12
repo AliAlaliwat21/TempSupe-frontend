@@ -28,7 +28,7 @@ const Dashboard = (props) => {
     if (isLoading) return <p>Loading...</p>
 
     return (
-        <section>
+        <main className='dashboard-page'>
 
             <header>
                 <h1>Welcome {props.user.username}!</h1>
@@ -45,8 +45,8 @@ const Dashboard = (props) => {
 
                 allUserRequests.map((request) => (
 
-                    <div
-                        className="card"
+                    <article
+                        className="dashboard-request-card"
                         key={request._id}
                     >
 
@@ -90,13 +90,13 @@ const Dashboard = (props) => {
                             {request.status}
                         </p>
 
-                    </div>
+                    </article>
 
                 ))
 
             )}
 
-        </section>
+        </main>
     )
 }
 
