@@ -3,6 +3,8 @@ import { Link } from 'react-router'
 import { useParams } from 'react-router'
 import * as requestServices from '../services/requestServices'
 import { useNavigate } from 'react-router'
+import Loading from '../components/Loading'
+
 
 const Dashboard = (props) => {
 
@@ -42,13 +44,15 @@ const Dashboard = (props) => {
         }
 }
 
-    if (isLoading) return <p>Loading...</p>
+    if (isLoading) {
+    return <Loading />
+    }
 
     return (
         <main className='dashboard-page'>
 
             <header>
-                <h1>Welcome {props.user.username}!</h1>
+                <h1>Welcome, {props.user.username}!</h1>
 
                 <h2>Your Service Requests</h2>
             </header>
