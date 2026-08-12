@@ -5,39 +5,26 @@ import Loading from '../components/Loading'
 
 const HeroList = ({ heroes, isLoading }) => {
 
-    if (isLoading) {
-    return <Loading />
-    }
-
-    const [showLegacy, setShowLegacy] = useState(false)
+  const [showLegacy, setShowLegacy] = useState(false)
 
   const displayedHeroes = heroes.filter((hero) => {
-
 
     if (!hero.generation) {
       return false
     }
 
-
     if (showLegacy) {
-
       return hero.generation.includes('legacy')
-
     }
-
 
     return hero.generation.includes('current')
 
   })
 
 
-
   const handleGenerationSwitch = () => {
-
     setShowLegacy(!showLegacy)
-
   }
-
 
 
   return (
@@ -53,7 +40,6 @@ const HeroList = ({ heroes, isLoading }) => {
 
       <header className="hero-list-header">
 
-
         <p className="vought-label">
 
           {showLegacy
@@ -62,7 +48,6 @@ const HeroList = ({ heroes, isLoading }) => {
           }
 
         </p>
-
 
 
         <h1>
@@ -75,7 +60,6 @@ const HeroList = ({ heroes, isLoading }) => {
         </h1>
 
 
-
         <p className="hero-list-intro">
 
           {showLegacy
@@ -85,9 +69,7 @@ const HeroList = ({ heroes, isLoading }) => {
 
         </p>
 
-
       </header>
-
 
 
       <section
@@ -102,18 +84,15 @@ const HeroList = ({ heroes, isLoading }) => {
 
         {displayedHeroes.map((hero) => (
 
-
           <article
             key={hero._id}
             className={`hero-list-card ${hero.theme}`}
           >
 
-
             <Link
               to={`/heroes/${hero._id}`}
               className="hero-card-link"
             >
-
 
               {hero.image && (
 
@@ -129,9 +108,7 @@ const HeroList = ({ heroes, isLoading }) => {
               )}
 
 
-
               <div className="hero-card-content">
-
 
                 <p className="hero-card-label">
 
@@ -143,11 +120,9 @@ const HeroList = ({ heroes, isLoading }) => {
                 </p>
 
 
-
                 <h2>
                   {hero.name}
                 </h2>
-
 
 
                 <p className="hero-card-specialty">
@@ -155,29 +130,22 @@ const HeroList = ({ heroes, isLoading }) => {
                 </p>
 
 
-
                 <p className="hero-card-biography">
                   {hero.biography}
                 </p>
-
 
 
                 <span className="hero-card-action">
                   View Profile →
                 </span>
 
-
               </div>
-
 
             </Link>
 
-
           </article>
 
-
         ))}
-
 
 
         <article
@@ -188,21 +156,20 @@ const HeroList = ({ heroes, isLoading }) => {
           }`}
         >
 
-
           <button
             type="button"
             className="generation-switch-button"
             onClick={handleGenerationSwitch}
           >
 
-
             <div className="hero-card-content">
 
-
               <p className="hero-card-label">
-                VOUGHT ARCHIVES
+                {showLegacy
+                  ? 'VOUGHT INTERNATIONAL'
+                  : 'VOUGHT ARCHIVES'
+                }
               </p>
-
 
 
               <h2>
@@ -215,7 +182,6 @@ const HeroList = ({ heroes, isLoading }) => {
               </h2>
 
 
-
               <p className="hero-card-specialty">
 
                 {showLegacy
@@ -224,7 +190,6 @@ const HeroList = ({ heroes, isLoading }) => {
                 }
 
               </p>
-
 
 
               <p className="hero-card-biography">
@@ -237,7 +202,6 @@ const HeroList = ({ heroes, isLoading }) => {
               </p>
 
 
-
               <span className="hero-card-action">
 
                 {showLegacy
@@ -247,18 +211,14 @@ const HeroList = ({ heroes, isLoading }) => {
 
               </span>
 
-
             </div>
 
-
           </button>
-
 
         </article>
 
 
       </section>
-
 
     </main>
 
